@@ -1,1 +1,50 @@
-new.html.erb
+
+    <style type="text/css">
+      html { height: 100% }
+      body { height: 100%; margin: 0; padding: 0 }
+      #map-canvas { height: 100% }
+    </style>
+
+    </script>
+    <script type="text/javascript">
+      function initialize() {
+        var mapOptions = {
+          center: new google.maps.LatLng(-34.397, 150.644),
+          zoom: 8
+        };
+        var map = new google.maps.Map(document.getElementById("map-canvas"),
+            mapOptions);
+        
+        var loc = new google.maps.LatLng(-34.397, 150.644);
+
+        var newMarker = new google.maps.Marker({
+        position: loc, 
+        map: map
+
+        });
+      }
+
+
+      google.maps.event.addDomListener(window, 'load', initialize);
+
+
+
+
+    </script>
+
+    <div id="map-canvas"/>
+
+// Anytime you want to place something on a map, you have to pass it an 
+// entire new google.maps.LatLng object. 
+
+// The following code will run inside a loop (inside the script tags) and position each pin from the AJAX call: 
+
+var loc = new google.maps.LatLng(-34.397, 150.644);
+var newMarker = new google.maps.Marker({
+  position: loc, 
+  map: map
+});
+
+The JavaScript code should go in the .js file, not in an erb file. 
+There needs to be a document ready call at the beginning of the code. 
+The styling should go in a .css file. 
